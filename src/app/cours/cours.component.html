@@ -1,0 +1,65 @@
+<button class="btn btn-primary" [class.active]="isActive"  (click)="showAlert($event)">add</button>
+                <h3>cours component</h3>
+                <h1>{{ title }}</h1>
+    
+                <ul>
+                <li *ngFor="let course of courses">{{ course }}</li>
+                </ul>
+
+                <input type="text" [(ngModel)] = "paragraphe" (keyUp.enter)="onClick($event)">
+        
+                {{ paragraphe }}
+
+                <ul>
+                    <li *ngFor=" let key of corse | keyvalue">{{ key.value }}</li>
+                    </ul>
+
+
+                    <p>{{ body | resumePipe }}</p>
+
+<button (click)="changeStar()" [ngClass]="starAble ? 'btn btn-primary' : 'btn btn-danger'" ></button>
+
+
+<fa-icon [icon]="faCoffee"></fa-icon> 
+
+<i (click)="changeStar()" [ngClass]="starAble ? 'fas fa-star' : 'far fa-star'" [ngStyle]="{'font-size': starAble ? '50px' : '10px', 'color':starAble ? 'red' : 'green'}"></i>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" [ngClass] = "switchValue == 'laravel' ? 'active' : ''" (click)="switchValue='laravel'">laravel</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="switchValue == 'angular'" (click)="switchValue='angular'">angular</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="switchValue == 'spring'" (click)="switchValue='spring'">spring</a>
+    </li>
+</ul>
+      
+<div [ngSwitch]="switchValue">
+    <div *ngSwitchCase="'laravel'">lorem laravel</div>
+    <div *ngSwitchCase="'angular'">lorem angular</div>
+    <div *ngSwitchCase="'spring'">lorem spring</div>
+    <div *ngSwitchDefault>ssss</div>
+
+</div>
+
+
+    <button class="btn btn-dark" (click)="seeCourses()">Voir liste des cours</button>
+
+<ul *ngIf="listeCourses">
+    <li *ngFor="let course of coreses; last as isPair; trackBy : tracking"><span *ngIf="isPair">pair-</span>{{ coreses.length }}---{{ course.id }} -----{{ course.title }}
+    <button class="btn btn-danger" (click)="removeItem(course)">delete</button>
+    <button class="btn btn-warning" (click)="editItem(course)">edit</button>
+
+    </li>
+
+</ul>
+
+<button (click)="addItemToCourses()" class="btn btn-success">add</button>
+
+<p>{{ personne.adresse?.city }}</p>
+<br>
+<input type="text"  [appInputFormat] = "'lowercase'">
+                     
+

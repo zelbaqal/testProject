@@ -1,0 +1,36 @@
+
+        <!-- <div class="row">
+            <div class="works-item col-md-12 col-xs-12">
+                    <div class="row mb-5" *ngFor="let follower of followers">
+                        <div class="col-xs-4">
+                            <img src="{{follower.avatar_url}}" alt="" class="rounded-circle" width="120px">
+                        </div>
+                        <div class="item-info col-xs-8">
+                            <h4 class="item-name">{{ follower.login }}</h4>
+                            <a class="item-type" href="{{ follower.url }}">{{ follower.url }}</a>
+                        </div>
+                    </div>
+            </div> -->
+
+           <!--  <div class="media" *ngFor="let follower of followers">
+                <div class="media-left">
+                    <a href="#">
+                        <img src="{{follower.avatar_url}}" alt="" class="rounded-circle media-object" width="120px">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ follower.login }}</h4>
+                    <a href="{{ follower.url }}">{{ follower.url }}</a>
+                </div>
+            </div> -->
+
+            <div class="mb-3" *ngFor="let follower of followers">
+                <div class="media">
+                    <img src="{{follower.avatar_url}}" class="rounded-circle mr-3" alt="..." width="100px">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ follower.login }}</h5>
+                        <a [routerLink]="['/followers', follower.id, follower.login]"
+                            [queryParams]="{page:1, type:follower.type, var:'val'}">{{ follower.html_url }}</a>
+                    </div>
+                </div>
+            </div>
